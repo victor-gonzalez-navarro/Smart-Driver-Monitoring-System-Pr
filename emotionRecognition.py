@@ -109,3 +109,5 @@ for i in range(0, 10):
     accur_lin.append(pred_lin)  # Store accuracy in a list
 
 print("Mean value lin svm: %s" % np.mean(accur_lin))  # FGet mean accuracy of the 10 runs
+
+# http://www.paulvangent.com/2016/08/05/emotion-recognition-using-facial-landmarks/
