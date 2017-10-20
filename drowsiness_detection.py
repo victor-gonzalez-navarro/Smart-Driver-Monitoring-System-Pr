@@ -89,6 +89,8 @@ detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')
 
 cap = cv2.VideoCapture(0)
+# cap = cv2.VideoCapture(1) in case we want to use an external camera
+
 
 # variables for processing 1
 counter = 0
