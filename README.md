@@ -5,10 +5,9 @@ The file you need to run if you want to see face detection, landmarks detection,
 ```
 drowsiness_detection.py 
 ```
-The file you need to run if you want to recognise the emotion is:
-```
-test.py
-```
+The file you need to run if you want to recognise the emotion is (you do not need to train the classifier because we created our own model):
+-[] test.py
+
 The file you need to run if you want to train the SVM classifier for recognising the emotion is:
 ```
 emotionRecognition.py
