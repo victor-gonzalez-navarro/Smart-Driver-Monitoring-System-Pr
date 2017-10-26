@@ -1,10 +1,21 @@
 # Smart driver monitoring system using a camera
 ## IMPORTANT:
+
+The file you need to run if you want to see face detection, landmarks detection, blink counter, and an alarm in case you close your eyes is: 
 ```
-The file you need to run is called drowsiness_detection.py if you want to see face detection, landmarks detection, blink counter, and an alarm in case you close your eyes 
+drowsiness_detection.py 
 ```
+The file you need to run if you want to recognise the emotion is:
 ```
-The file you need to run is called drowsiness_detection.py if you want to see face detection, landmarks detection, blink counter, and an alarm in case you close your eyes 
+test.py
+```
+The file you need to run if you want to train the SVM classifier for recognising the emotion is:
+```
+emotionRecognition.py
+```
+The file you need to run if you want to see face detection, landmarks detection and the message in case you blink is: 
+```
+face_detect_best.py 
 ```
 
 ## Introduction:
