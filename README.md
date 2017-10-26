@@ -1,7 +1,10 @@
 # Smart driver monitoring system using a camera
 ## IMPORTANT:
 ```
-The file you need to run is called drowsiness_detection.py
+The file you need to run is called drowsiness_detection.py if you want to see face detection, landmarks detection, blink counter, and an alarm in case you close your eyes 
+```
+```
+The file you need to run is called drowsiness_detection.py if you want to see face detection, landmarks detection, blink counter, and an alarm in case you close your eyes 
 ```
 
 ## Introduction:
