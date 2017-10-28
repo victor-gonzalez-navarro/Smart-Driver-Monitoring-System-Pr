@@ -4,7 +4,6 @@ import random
 import math
 import numpy as np
 import dlib
-import itertools
 from sklearn.svm import SVC
 from sklearn.externals import joblib
 
@@ -14,8 +13,12 @@ clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor(
     "shape_predictor_68_face_landmarks.dat")  # Or set this to whatever you named the downloaded file
-clf = SVC(kernel='linear', probability=True,
-          tol=1e-3)  # , verbose = True) #Set the classifier as a support vector machines with polynomial kernel
+#clf = SVC(kernel='linear', probability=True, tol=1e-3)  # , verbose = True) #Set the classifier as a support vector machines with polynomial kernel
+#clf = SVC(C=1.0, kernel='rbf', degree=3, gamma='auto', coef0=0.0, shrinking=True, probability=True, tol=0.001, class_weight=None, verbose=False, max_iter=-1, decision_function_shape='ovr', random_state=None)
+#clf = SVC(C=5.0, kernel='rbf', degree=5, gamma='auto', coef0=0.0, shrinking=True, probability=True, tol=0.001, class_weight='balanced', verbose=False, max_iter=-1, decision_function_shape='ovr', random_state=None)
+#clf = SVC(C=1.0, kernel='rbf', degree=5, gamma='auto', coef0=0.0, shrinking=True, probability=True, tol=0.001, class_weight='balanced', verbose=False, max_iter=-1, decision_function_shape='ovr', random_state=None)
+clf = SVC(C=1.0, kernel='rbf', degree=3, gamma='auto', coef0=0.0, shrinking=True, probability=True, tol=0.001, class_weight='balanced', verbose=False, max_iter=-1, decision_function_shape='ovr', random_state=None)
+
 
 data = {}  # Make dictionary for all values
 
@@ -47,13 +50,14 @@ def get_landmarks(image):
 
         landmarks_vectorised = []
         for x, y, w, z in zip(xcentral, ycentral, xlist, ylist):
-            landmarks_vectorised.append(w)
-            landmarks_vectorised.append(z)
+            #landmarks_vectorised.append(w)
+            #landmarks_vectorised.append(z)
             meannp = np.asarray((ymean, xmean))
             coornp = np.asarray((z, w))
             dist = np.linalg.norm(coornp - meannp)
             landmarks_vectorised.append(dist)
-            landmarks_vectorised.append(int(math.atan((y - ymean) / (x - xmean)) * 360 / math.pi))
+            #landmarks_vectorised.append(int(math.atan((y - ymean) / (x - xmean)) * 360 / math.pi))
+            landmarks_vectorised.append(int(math.atan((y) / (x+0.0001)) * 360 / (2*math.pi)))
 
         data['landmarks_vectorised'] = landmarks_vectorised
     if len(detections) < 1:
@@ -115,4 +119,4 @@ print("Mean value lin svm: %s" % np.mean(accur_lin))  # FGet mean accuracy of th
 # http://www.paulvangent.com/2016/08/05/emotion-recognition-using-facial-landmarks/
 
 #########################################################################################
-joblib.dump(clf,'filename.pkl')
+joblib.dump(clf,'filename5.pkl')

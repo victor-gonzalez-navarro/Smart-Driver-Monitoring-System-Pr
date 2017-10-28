@@ -47,7 +47,7 @@ predictor = dlib.shape_predictor(
 clf = joblib.load('filename.pkl')
 
 test_data = []
-image = cv2.imread("KA.HA1.29.tiff")  # open image
+image = cv2.imread("111.png")  # open image
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)  # convert to grayscale
 clahe_image = clahe.apply(gray)
 get_landmarks(clahe_image)
